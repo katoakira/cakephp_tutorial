@@ -9,4 +9,8 @@ class Post extends AppModel {
 			'rule' => 'notEmpty'
 		)
 	);	
+
+	public function isOwnerBy($post, $user) {
+		return $this->field('id', array('id' => $post, 'user_id' => $user)) !== false;
+	}
 }
